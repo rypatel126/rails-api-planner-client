@@ -81,6 +81,7 @@ const onShowTasksFailure = () => {
 
 const clearTasks = () => {
   $('.results').empty()
+  $('.status').text('click show task button to view your tasks')
 }
 
 module.exports = {

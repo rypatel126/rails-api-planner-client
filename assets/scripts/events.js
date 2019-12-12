@@ -81,6 +81,7 @@ const onShowTasks = event => {
 
 const onClearTasks = event => {
   event.preventDefault()
+  console.log('clear tasks button works')
   ui.clearTasks()
 }
 

@@ -1,6 +1,6 @@
 {{#each tasks as |task|}}
   {{log task}}
-  <section data-id="{{task.id}}">
+  <section data-id="{{task.id}}" class="task-info">
     <h6>title:</h6>
     <p>
       {{limit task.title 15}}
@@ -22,7 +22,6 @@
         {{/if}}
       </p>
     <button class="btn btn-danger" data-id="{{task.id}}">Delete task</button>
-    <!-- {{> partial}} -->
   </section>
 
 {{/each}}
