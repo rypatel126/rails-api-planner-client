@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>To-do List</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,38 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+        <h1>To-do List</h1>
+        <p class="instructions">Welcome! </br> This is a planner</p>
+      <section class="status"></section>
+      <section class="before-auth">
+      <h2>Sign Up</h2>
+        <form id="sign-up">
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Password Confirmamtion">
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      <h2>Sign In</h2>
+        <form id="sign-in">
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </section>
+      <section class="after-auth">
+      <section>
+        <h2>Change Password</h2>
+        <form id="change-password">
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      <h2>Sign Out</h2>
+      <form id="sign-out">
+      <button class="btn btn-danger">Sign Out</button>
+      <section class="task-list">
+        <h2>Tasks</h2>
+      </section>
     </body>
 </html>
