@@ -1,4 +1,4 @@
-
+const showTasksTemplate = require('./task-listing.handlebars')
 const store = require('./store.js')
 // const events = require('./events.js')
 
@@ -68,6 +68,17 @@ const onCreateTaskFailure = () => {
   onFailure($('.status').text('Failed to create new task!'))
 }
 
+const onShowTasksSuccess = (data) => {
+  onSuccess($('.status').text('tasks are below!'))
+  console.log('data is', data)
+  const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
+  $('.results').html(showTasksHtml)
+}
+
+const onShowTasksFailure = () => {
+  onFailure($('.status').text('failed to get tasks'))
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -78,5 +89,7 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onCreateTaskSuccess,
-  onCreateTaskFailure
+  onCreateTaskFailure,
+  onShowTasksSuccess,
+  onShowTasksFailure
 }

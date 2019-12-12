@@ -73,8 +73,7 @@ const showTasks = () => {
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
-    },
-    data: store.tasks
+    }
   })
 }
 
