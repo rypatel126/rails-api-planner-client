@@ -59,6 +59,15 @@ const onSignOutFailure = () => {
   onFailure($('.status').text('Sign out failed!'))
 }
 
+const onCreateTaskSuccess = data => {
+  onSuccess($('.status').text('You have created a new task!'))
+  store.task = data.task
+}
+
+const onCreateTaskFailure = () => {
+  onFailure($('.status').text('Failed to create new task!'))
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -67,5 +76,7 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onCreateTaskSuccess,
+  onCreateTaskFailure
 }

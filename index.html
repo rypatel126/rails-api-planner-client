@@ -17,6 +17,7 @@
         <p class="instructions">Welcome! </br> This is a planner</p>
       <section class="status"></section>
       <section class="before-auth">
+        <button class="btn btn-primary" id="quick-sign-in">Quick Sign In</button>
       <h2>Sign Up</h2>
         <form id="sign-up">
           <input type="email" name="credentials[email]" placeholder="Email">
@@ -32,7 +33,6 @@
         </form>
       </section>
       <section class="after-auth">
-      <section>
         <h2>Change Password</h2>
         <form id="change-password">
           <input type="password" name="passwords[old]" placeholder="Old Password">
@@ -41,9 +41,18 @@
         </form>
       <h2>Sign Out</h2>
       <form id="sign-out">
-      <button class="btn btn-danger">Sign Out</button>
+        <button class="btn btn-danger">Sign Out</button>
+      </form>
       <section class="task-list">
         <h2>Tasks</h2>
+        <form id="create-task">
+          <input placeholder="Task Title" name="task[title]" type="text">
+          <input placeholder="Task Description" name="task[description]" type="text">
+          <input placeholder="Deadline" name="task[deadline]" type="date">
+          <button class="btn btn-primary">Create a new task</button>
+        </form>
+        <button class="btn btn-primary" id="show-tasks">Show all tasks</button>
+      </section>
       </section>
     </body>
 </html>

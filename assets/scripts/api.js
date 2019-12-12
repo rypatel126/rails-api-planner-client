@@ -10,10 +10,27 @@ const signUp = formData => {
 }
 
 const signIn = formData => {
+  console.log('formData is ', formData)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
     data: formData
+  })
+}
+
+const quickSignIn = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    // headers: {
+    //   Authorization: `Token token=${store.user.token}`
+    // },
+    data: {
+      'credentials': {
+        'email': 'clienttest3@test',
+        'password': 'test'
+      }
+    }
   })
 }
 
@@ -38,9 +55,35 @@ const signOut = () => {
   })
 }
 
+const createTask = formData => {
+  console.log('in api.js formData is ', formData)
+  return $.ajax({
+    url: config.apiUrl + '/tasks',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+
+const showTasks = () => {
+  return $.ajax({
+    url: config.apiUrl + '/tasks',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: store.tasks
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createTask,
+  quickSignIn,
+  showTasks
 }

@@ -26,6 +26,18 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 }
 
+const onQuickSignIn = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  console.log('quick sign in works')
+  api.quickSignIn(formData)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
+}
+
 const onChangePassword = event => {
   event.preventDefault()
 
@@ -47,11 +59,34 @@ const onSignOut = event => {
     .catch(ui.onSignOutFailure)
 }
 
+const onCreateTask = event => {
+  event.preventDefault()
+  console.log('create task button works')
+  const form = event.target
+  console.log('in events.js form is', form)
+  const formData = getFormFields(form)
+  console.log('in events.js formData is', formData)
+  api.createTask(formData)
+    .then(ui.onCreateGameSuccess)
+    .catch(ui.onCreateGameFailure)
+}
+
+const onShowTasks = event => {
+  event.preventDefault()
+  console.log('show tasks button works')
+  api.showTasks()
+    .then(ui.onShowTasksSuccess)
+    .catch(ui.onShowTasksFailure)
+}
+
 const addAuthHandlers = event => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
+  $('#create-task').on('submit', onCreateTask)
+  $('#quick-sign-in').on('click', onQuickSignIn)
+  $('#show-tasks').on('click', onShowTasks)
 }
 
 module.exports = {
