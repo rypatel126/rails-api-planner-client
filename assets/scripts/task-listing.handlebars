@@ -2,17 +2,25 @@
   {{log task}}
   <section data-id="{{task.id}}">
     <h6>title:</h6>
-    <h3>
-      {{limit task.title 15}}
-    </h3>
-    <h6>description:</h6>
     <p>
-      {{#if task.description}}
-        {{task.description}}
-      {{else}}
-        No description provided.
-      {{/if}}
+      {{limit task.title 15}}
     </p>
+    <h6>description:</h6>
+      <p>
+        {{#if task.description}}
+          {{task.description}}
+        {{else}}
+          No description provided.
+        {{/if}}
+      </p>
+    <h6>deadline:</h6>
+      <p>
+        {{#if task.deadline}}
+          {{task.deadline}}
+        {{else}}
+          No deadline provided.
+        {{/if}}
+      </p>
     <button class="btn btn-danger" data-id="{{task.id}}">Delete task</button>
     <!-- {{> partial}} -->
   </section>

@@ -79,6 +79,10 @@ const onShowTasksFailure = () => {
   onFailure($('.status').text('failed to get tasks'))
 }
 
+const clearTasks = () => {
+  $('.results').empty()
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -91,5 +95,6 @@ module.exports = {
   onCreateTaskSuccess,
   onCreateTaskFailure,
   onShowTasksSuccess,
-  onShowTasksFailure
+  onShowTasksFailure,
+  clearTasks
 }

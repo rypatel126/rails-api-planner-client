@@ -77,6 +77,16 @@ const showTasks = () => {
   })
 }
 
+const deleteTask = function (taskId) {
+  return $.ajax({
+    url: config.apiUrl + '/tasks/' + taskId,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -84,5 +94,6 @@ module.exports = {
   signOut,
   createTask,
   quickSignIn,
-  showTasks
+  showTasks,
+  deleteTask
 }

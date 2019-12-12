@@ -79,6 +79,23 @@ const onShowTasks = event => {
     .catch(ui.onShowTasksFailure)
 }
 
+const onClearTasks = event => {
+  event.preventDefault()
+  ui.clearTasks()
+}
+
+const onDeleteTask = event => {
+  console.log('delete task button works')
+  event.preventDefault()
+  const taskId = $(event.target).data('id')
+  // send task ID to our deleteTask in api file
+  api.deleteTask(taskId)
+    .then(function (data) {
+      onShowTasks(event)
+    })
+    .catch(ui.onDeleteTaskFailure)
+}
+
 const addAuthHandlers = event => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -87,6 +104,8 @@ const addAuthHandlers = event => {
   $('#create-task').on('submit', onCreateTask)
   $('#quick-sign-in').on('click', onQuickSignIn)
   $('#show-tasks').on('click', onShowTasks)
+  $('#clear-tasks').on('click', onClearTasks)
+  $('.results').on('click', '.btn-danger', onDeleteTask)
 }
 
 module.exports = {
