@@ -34,6 +34,7 @@ const onSignInSuccess = responseData => {
   onSuccess($('.status').text('You have successfully signed in!'))
   $('.after-auth').show()
   $('.before-auth').hide()
+  $('.task-list').show()
 }
 
 const onSignInFailure = () => {
@@ -53,6 +54,8 @@ const onSignOutSuccess = () => {
   store.user = {} // now store.js object will revert back to being empty
   $('.before-auth').show()
   $('.after-auth').hide()
+  $('.task-list').hide()
+  $('.task').hide()
 }
 
 const onSignOutFailure = () => {
@@ -69,19 +72,19 @@ const onCreateTaskFailure = () => {
 }
 
 const onShowTasksSuccess = (data) => {
-  onSuccess($('.status').text('tasks are below!'))
+  onSuccess($('.status').text('Tasks are below!'))
   console.log('data is', data)
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
   $('.results').html(showTasksHtml)
 }
 
 const onShowTasksFailure = () => {
-  onFailure($('.status').text('failed to get tasks'))
+  onFailure($('.status').text('Failed to get tasks!'))
 }
 
 const clearTasks = () => {
   $('.results').empty()
-  $('.status').text('click show task button to view your tasks')
+  $('.status').text('Click the Show Tasks button to view your tasks')
 }
 
 module.exports = {

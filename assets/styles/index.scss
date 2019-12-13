@@ -6,4 +6,58 @@
   padding: 10px;
   border-color: black;
   border-style: inset;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.status {
+  height: 50px;
+}
+
+.auth {
+  text-align: center;
+  padding: 10px;
+}
+
+h6 {
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.before-auth {
+  padding: 30px;
+  padding-bottom: 30px;
+  border-color: black;
+  border-style: inset;
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
+.after-auth {
+  padding: 30px;
+  padding-bottom: 30px;
+  border-color: black;
+  border-style: inset;
+  margin-right: 500px;
+  margin-left: 500px;
+}
+
+.task-list {
+  padding: 10px;
+  border-color: black;
+  border-style: inset;
+  margin-right: 300px;
+  margin-left: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 20px;
+}
+
+.delete {
+  margin-left: 800px;
 }

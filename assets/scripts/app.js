@@ -10,5 +10,6 @@ const events = require('./events.js')
 
 $(() => {
   $('.after-auth').hide()
+  $('.task-list').hide()
   events.addAuthHandlers()
 })
