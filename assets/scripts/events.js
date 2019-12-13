@@ -26,18 +26,6 @@ const onSignIn = event => {
     .catch(ui.onSignInFailure)
 }
 
-const onQuickSignIn = event => {
-  event.preventDefault()
-
-  const form = event.target
-  const formData = getFormFields(form)
-
-  console.log('quick sign in works')
-  api.quickSignIn(formData)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFailure)
-}
-
 const onChangePassword = event => {
   event.preventDefault()
 
@@ -97,16 +85,27 @@ const onDeleteTask = event => {
     .catch(ui.onDeleteTaskFailure)
 }
 
+const onUpdateTask = event => {
+  event.preventDefault()
+  console.log('update task button works')
+  const taskId = $(event.target).data('id')
+  api.updateTask(taskId)
+    .then(function (data) {
+      onShowTasks(event)
+    })
+    .catch(ui.onUpdateTaskFailure)
+}
+
 const addAuthHandlers = event => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#create-task').on('submit', onCreateTask)
-  $('#quick-sign-in').on('click', onQuickSignIn)
   $('#show-tasks').on('click', onShowTasks)
   $('#clear-tasks').on('click', onClearTasks)
-  $('.results').on('click', '.btn-danger', onDeleteTask)
+  $('.results').on('click', '.delete', onDeleteTask)
+  $('.results').on('click', '.update', onUpdateTask)
 }
 
 module.exports = {

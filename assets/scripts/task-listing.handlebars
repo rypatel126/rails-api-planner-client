@@ -1,10 +1,13 @@
 {{#each tasks as |task|}}
-  {{log task}}
   <section data-id="{{task.id}}" class="task-info">
     <h6>title:</h6>
-    <p>
-      {{limit task.title 15}}
-    </p>
+      <p>
+        {{#if task.title}}
+          {{task.title}}
+        {{else}}
+          No title provided
+        {{/if}}
+      </p>
     <h6>description:</h6>
       <p>
         {{#if task.description}}
@@ -21,7 +24,8 @@
           No deadline provided.
         {{/if}}
       </p>
-    <button class="btn btn-danger" data-id="{{task.id}}">Delete task</button>
+    <button class="btn btn-danger delete" data-id="{{task.id}}">Delete task</button>
+    <button class="btn btn-primary update" data-id="{{task.id}}">Update task</button>
   </section>
 
 {{/each}}

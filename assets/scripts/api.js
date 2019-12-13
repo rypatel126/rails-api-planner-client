@@ -18,22 +18,6 @@ const signIn = formData => {
   })
 }
 
-const quickSignIn = () => {
-  return $.ajax({
-    url: config.apiUrl + '/sign-in',
-    method: 'POST',
-    // headers: {
-    //   Authorization: `Token token=${store.user.token}`
-    // },
-    data: {
-      'credentials': {
-        'email': 'clienttest3@test',
-        'password': 'test'
-      }
-    }
-  })
-}
-
 const changePassword = formData => {
   return $.ajax({
     url: config.apiUrl + '/change-password',
@@ -77,7 +61,7 @@ const showTasks = () => {
   })
 }
 
-const deleteTask = function (taskId) {
+const deleteTask = taskId => {
   return $.ajax({
     url: config.apiUrl + '/tasks/' + taskId,
     method: 'DELETE',
@@ -87,13 +71,24 @@ const deleteTask = function (taskId) {
   })
 }
 
+const updateTask = (taskId, formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/tasks/' + taskId,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: formData
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   createTask,
-  quickSignIn,
   showTasks,
-  deleteTask
+  deleteTask,
+  updateTask
 }
