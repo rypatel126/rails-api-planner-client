@@ -19,6 +19,7 @@ const signIn = formData => {
 }
 
 const changePassword = formData => {
+  console.log('change password formData is', formData)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -71,7 +72,9 @@ const deleteTask = taskId => {
   })
 }
 
-const updateTask = (taskId, formData) => {
+const submitUpdatedTask = (taskId, formData) => {
+  console.log('update task taskId is', taskId)
+  console.log('update task formData is', formData)
   return $.ajax({
     url: config.apiUrl + '/tasks/' + taskId,
     method: 'PATCH',
@@ -90,5 +93,5 @@ module.exports = {
   createTask,
   showTasks,
   deleteTask,
-  updateTask
+  submitUpdatedTask
 }

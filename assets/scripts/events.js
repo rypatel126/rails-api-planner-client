@@ -16,10 +16,9 @@ const onSignUp = event => {
 
 const onSignIn = event => {
   event.preventDefault()
-
   const form = event.target
+  console.log('in events.js onSignIn form is', form)
   const formData = getFormFields(form)
-
   // console.log('sign in works')
   api.signIn(formData)
     .then(ui.onSignInSuccess)
@@ -28,10 +27,8 @@ const onSignIn = event => {
 
 const onChangePassword = event => {
   event.preventDefault()
-
   const form = event.target
   const formData = getFormFields(form)
-
   // console.log('change password works')
   api.changePassword(formData)
     .then(ui.onChangePasswordSuccess)
@@ -54,8 +51,11 @@ const onCreateTask = event => {
   console.log('in events.js form is', form)
   const formData = getFormFields(form)
   console.log('in events.js formData is', formData)
+  console.log('in events.js event.target is', event.target)
   api.createTask(formData)
-    .then(ui.onCreateGameSuccess)
+    .then(function (data) {
+      onShowTasks(event)
+    })
     .catch(ui.onCreateGameFailure)
 }
 
@@ -65,6 +65,7 @@ const onShowTasks = event => {
   api.showTasks()
     .then(ui.onShowTasksSuccess)
     .catch(ui.onShowTasksFailure)
+  $('.update-task').hide()
 }
 
 const onClearTasks = event => {
@@ -85,15 +86,25 @@ const onDeleteTask = event => {
     .catch(ui.onDeleteTaskFailure)
 }
 
-const onUpdateTask = event => {
+const onSubmitUpdateTask = event => {
   event.preventDefault()
-  console.log('update task button works')
+  console.log('submit task button works')
   const taskId = $(event.target).data('id')
-  api.updateTask(taskId)
+  console.log('in events.js taskId event.target is', event.target)
+  const form = event.target
+  console.log('in events.js form is', form, 'event.target is', event.target)
+  const formData = getFormFields(form)
+  console.log('in events.js formData is', formData)
+  api.submitUpdatedTask(taskId, formData)
     .then(function (data) {
       onShowTasks(event)
     })
     .catch(ui.onUpdateTaskFailure)
+}
+
+const onUpdateTask = event => {
+  $('.update-task').show().data('id')
+  $('.task-info').hide()
 }
 
 const addAuthHandlers = event => {
@@ -105,6 +116,7 @@ const addAuthHandlers = event => {
   $('#show-tasks').on('click', onShowTasks)
   $('#clear-tasks').on('click', onClearTasks)
   $('.results').on('click', '.delete', onDeleteTask)
+  $('.results').on('submit', '.update-task', onSubmitUpdateTask)
   $('.results').on('click', '.update', onUpdateTask)
 }
 

@@ -1,7 +1,7 @@
 {{#each tasks as |task|}}
-  <section data-id="{{task.id}}" class="task-info">
+  <section data-id="{{task.id}}" class="task">
     <h6>title:</h6>
-      <p>
+      <p class="task-info">
         {{#if task.title}}
           {{task.title}}
         {{else}}
@@ -9,7 +9,7 @@
         {{/if}}
       </p>
     <h6>description:</h6>
-      <p>
+      <p class="task-info">
         {{#if task.description}}
           {{task.description}}
         {{else}}
@@ -17,15 +17,83 @@
         {{/if}}
       </p>
     <h6>deadline:</h6>
-      <p>
+      <p class="task-info">
         {{#if task.deadline}}
           {{task.deadline}}
         {{else}}
           No deadline provided.
         {{/if}}
       </p>
+      <h6>Update Task</h6>
+      <section>
+        <form class="update-task" data-id="{{task.id}}">
+          <input placeholder="Task Title" name="task[title]" type="text">
+          <input placeholder="Task Description" name="task[description]" type="text">
+          <input placeholder="Deadline" name="task[deadline]" type="date">
+          <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+        </form>
+      </section>
     <button class="btn btn-danger delete" data-id="{{task.id}}">Delete task</button>
     <button class="btn btn-primary update" data-id="{{task.id}}">Update task</button>
   </section>
 
 {{/each}}
+
+
+<!-- {{#each tasks as |task|}}
+  <section data-id="{{task.id}}" class="task">
+    <h6>title:</h6>
+      <p class="task-info">
+        {{#if task.title}}
+          {{task.title}}
+        {{else}}
+          No title provided
+        {{/if}}
+        <form class="update-task" data-id="{{task.id}}">
+          <input placeholder="Task Title" name="task[title]" type="text">
+          <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+        </form>
+      </p>
+    <h6>description:</h6>
+      <p class="task-info">
+        {{#if task.description}}
+          {{task.description}}
+        {{else}}
+          No description provided.
+        {{/if}}
+        <form class="update-task" data-id="{{task.id}}">
+          <input placeholder="Task Description" name="task[description]" type="text">
+          <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+        </form>
+      </p>
+    <h6>deadline:</h6>
+      <p class="task-info">
+        {{#if task.deadline}}
+          {{task.deadline}}
+        {{else}}
+          No deadline provided.
+        {{/if}}
+        <form class="update-task" data-id="{{task.id}}">
+          <input placeholder="Deadline" name="task[deadline]" type="date">
+          <button class="btn btn-primary submit" data-id="{{task.id}}">Submit changes</button>
+        </form>
+      </p>
+    <button class="btn btn-danger delete" data-id="{{task.id}}">Delete task</button>
+    <button class="btn btn-primary update" data-id="{{task.id}}">Update task</button>
+  </section>
+
+{{/each}} -->
+
+
+<!-- <form id="update-task-title">
+  <input placeholder="Task Title" name="task[title]" type="text">
+</form>
+
+<form id="update-task-description">
+  <input placeholder="Task Description" name="task[description]" type="text">
+</form>
+
+<form id="update-task-deadline">
+  <input placeholder="Deadline" name="task[deadline]" type="date">
+</form>
+  <button class="btn btn-primary submit">Submit changes</button> -->

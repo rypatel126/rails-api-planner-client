@@ -12,7 +12,7 @@ const onSuccess = message => {
 }
 
 const onFailure = message => {
-  $('#results').text(message)
+  $('#results')
     .removeClass('success')
     .addClass('failure')
     .text(message)
