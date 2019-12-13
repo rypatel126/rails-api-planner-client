@@ -30,7 +30,7 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  // console.log(store)
+  // // console.log(store)
   onSuccess($('.status').text('You have successfully signed in!'))
   $('.after-auth').show()
   $('.before-auth').hide()
@@ -73,7 +73,7 @@ const onCreateTaskFailure = () => {
 
 const onShowTasksSuccess = (data) => {
   onSuccess($('.status').text('Tasks are below!'))
-  console.log('data is', data)
+  // console.log('data is', data)
   const showTasksHtml = showTasksTemplate({ tasks: data.tasks })
   $('.results').html(showTasksHtml)
 }

@@ -10,7 +10,7 @@ const signUp = formData => {
 }
 
 const signIn = formData => {
-  console.log('formData is ', formData)
+  // console.log('formData is ', formData)
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -19,7 +19,7 @@ const signIn = formData => {
 }
 
 const changePassword = formData => {
-  console.log('change password formData is', formData)
+  // console.log('change password formData is', formData)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -41,7 +41,7 @@ const signOut = () => {
 }
 
 const createTask = formData => {
-  console.log('in api.js formData is ', formData)
+  // console.log('in api.js formData is ', formData)
   return $.ajax({
     url: config.apiUrl + '/tasks',
     method: 'POST',
@@ -73,8 +73,8 @@ const deleteTask = taskId => {
 }
 
 const submitUpdatedTask = (taskId, formData) => {
-  console.log('update task taskId is', taskId)
-  console.log('update task formData is', formData)
+  // console.log('update task taskId is', taskId)
+  // console.log('update task formData is', formData)
   return $.ajax({
     url: config.apiUrl + '/tasks/' + taskId,
     method: 'PATCH',
