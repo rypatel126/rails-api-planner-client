@@ -65,7 +65,8 @@ const onShowTasks = event => {
   api.showTasks()
     .then(ui.onShowTasksSuccess)
     .catch(ui.onShowTasksFailure)
-  $('.update-task').hide()
+  $('.task').show()
+  $('.default-state').hide()
 }
 
 const onClearTasks = event => {
@@ -103,8 +104,9 @@ const onSubmitUpdateTask = event => {
 }
 
 const onUpdateTask = event => {
-  $('.update-task').show().data('id')
-  $('.task-info').hide()
+  $('.update').show()
+  // .data('id')
+  $('.task').hide()
 }
 
 const addAuthHandlers = event => {
